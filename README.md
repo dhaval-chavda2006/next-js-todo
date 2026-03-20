@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 Next.js Client-Side Todo App
 
-## Getting Started
+A beautiful, functional, and responsive Todo List application built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. 
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **🚀 Next.js 15 App Router:** Utilizes the newest React features out-of-the-box.
+- **💾 Local Storage Persistence:** Client-side caching means your todos are saved securely in your browser and instantly available without a database.
+- **🎨 Dark Mode UI:** A gorgeous, centered card layout using Tailwind's rich dark-mode design system. 
+- **⚡ Fully Interactive:** Seamless inline editing, instant creation, and one-click deletions without page reloads.
+- **⏳ Smart Timestamps:** Automatically tracks creation dates and accurate "Last updated" times for every task.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ How It Was Built (The Logic)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This app completely relies on client-side React features, safely sidestepping server-rendering conflicts using the `"use client"` directive.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **State Management:** 
+   We maintain a primary `todos` array in the component state using `useState`. This single source of truth holds items shaped by our custom TypeScript `Todo` interface (ID, title, description, and timestamps).
 
-## Learn More
+2. **Local Storage Synchronization:**
+   The `useEffect` hook operates in two parts:
+   - **On Mount:** Safely reads the `todos` payload from the browser's `localStorage` and hydrates the initial state. We track an `isLoaded` boolean to prevent Next.js hydration mismatches between the server-rendered shell and the client data.
+   - **On Update:** Whenever the `todos` state updates (creation, edit, or deletion), another `useEffect` automatically stringifies the array and commits it back to `localStorage`.
 
-To learn more about Next.js, take a look at the following resources:
+3. **Inline Editing System:**
+   Rather than simple prompts or modals, we implement inline editing natively. By keeping track of an `editingId` within the state, the UI conditionally swaps a todo's display text for interactive input fields precisely where they live on the screen.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Date Formatting:**
+   Timestamps are generated upon item creation and modified upon editing. We format these standard browser `Date` objects into a clean layout (`YYYY-MM-DD HH:MM [AM/PM]`) directly using native JavaScript logic.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💻 Getting Started
 
-## Deploy on Vercel
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/dhaval-chavda2006/next-js-todo.git
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in Browser:** Navigate to [http://localhost:3000](http://localhost:3000)
