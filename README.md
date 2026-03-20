@@ -1,16 +1,16 @@
-# 📝 Next.js Client-Side Todo App
+# Next.js Todo App
 
-A beautiful, functional, and responsive Todo List application built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. 
+A functional and responsive Todo List application built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. 
 
-## ✨ Features
+## ✨Features
 
-- **🚀 Next.js 15 App Router:** Utilizes the newest React features out-of-the-box.
-- **💾 Local Storage Persistence:** Client-side caching means your todos are saved securely in your browser and instantly available without a database.
-- **🎨 Dark Mode UI:** A gorgeous, centered card layout using Tailwind's rich dark-mode design system. 
-- **⚡ Fully Interactive:** Seamless inline editing, instant creation, and one-click deletions without page reloads.
-- **⏳ Smart Timestamps:** Automatically tracks creation dates and accurate "Last updated" times for every task.
+- **Next.js 15 App Router:** Utilizes the newest React features out-of-the-box.
+- **Local Storage Persistence:** Client-side caching means your todos are saved securely in your browser and instantly available without a database.
+- **Dark Mode UI:** A gorgeous, centered card layout using Tailwind's rich dark-mode design system. 
+- **Fully Interactive:** Seamless inline editing, instant creation, and one-click deletions without page reloads.
+- **Smart Timestamps:** Automatically tracks creation dates and accurate "Last updated" times for every task.
 
-## 🛠️ How It Was Built (The Logic)
+## 🛠️How It Was Built (The Logic)
 
 This app completely relies on client-side React features, safely sidestepping server-rendering conflicts using the `"use client"` directive.
 
@@ -28,21 +28,16 @@ This app completely relies on client-side React features, safely sidestepping se
 4. **Date Formatting:**
    Timestamps are generated upon item creation and modified upon editing. We format these standard browser `Date` objects into a clean layout (`YYYY-MM-DD HH:MM [AM/PM]`) directly using native JavaScript logic.
 
-## 💻 Getting Started
+## Getting Started
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/dhaval-chavda2006/next-js-todo.git
-   ```
-
-2. **Install dependencies:**
+1. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Run the development server:**
+2. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-4. **Open in Browser:** Navigate to [http://localhost:3000](http://localhost:3000)
+3. **Open in Browser:** Navigate to [http://localhost:3000](http://localhost:3000)
